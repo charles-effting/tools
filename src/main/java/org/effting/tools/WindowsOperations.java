@@ -13,7 +13,7 @@ import java.util.Map;
  */
 class WindowsOperations extends AbstractOperations {
 
-    protected static final String EXPLORER_COMMAND = "explorer";
+    protected static final String EXPLORER_COMMAND = "explorer.exe";
 
     @Override
     protected List<String> getOpenCommands() {
@@ -43,12 +43,17 @@ class WindowsOperations extends AbstractOperations {
      */
     protected static class WindowsOperationsExecutor<T> extends OperationsExecutor {
 
+        private static final int DEFAULT_EXIT_CODE = 1;
+
         private final T argument;
 
         public WindowsOperationsExecutor(final List<String> commandList, T argument) {
             super(commandList);
 
             this.argument = argument;
+
+            // Sets the default exit code for Window processes.
+            setExitCode(DEFAULT_EXIT_CODE);
         }
 
         @Override

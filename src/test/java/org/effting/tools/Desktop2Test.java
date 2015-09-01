@@ -21,6 +21,32 @@ public class Desktop2Test {
 
     @Test
     public void should_be_linux_os() {
+        System.setProperty("os.name", "Linux Mint 17");
+
+        final OperatingSystem os = OperatingSystem.current();
+        assertEquals(os, OperatingSystem.UNIX);
+    }
+
+    @Test
+    public void should_be_windows_os() {
+        System.setProperty("os.name", "Microsoft Windows 7");
+
+        final OperatingSystem os = OperatingSystem.current();
+        assertEquals(os, OperatingSystem.WINDOWS);
+    }
+
+    @Test
+    public void should_be_mac_os() {
+        System.setProperty("os.name", "Apple Macintosh");
+
+        final OperatingSystem os = OperatingSystem.current();
+        assertEquals(os, OperatingSystem.MAC_OS);
+    }
+
+    @Test
+    public void should_be_solaris_os() {
+        System.setProperty("os.name", "Sun Solaris 1");
+
         final OperatingSystem os = OperatingSystem.current();
         assertEquals(os, OperatingSystem.UNIX);
     }
@@ -31,7 +57,7 @@ public class Desktop2Test {
         operations.open(new File(USER_HOME));
 
         try {
-            Thread.sleep(TimeUnit.MILLISECONDS.convert(12, TimeUnit.SECONDS));
+            Thread.sleep(TimeUnit.MILLISECONDS.convert(6, TimeUnit.SECONDS));
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }

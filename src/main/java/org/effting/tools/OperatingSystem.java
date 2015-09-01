@@ -33,13 +33,13 @@ public enum OperatingSystem {
      * @return
      */
     public static OperatingSystem current() {
-        final String name = System.getProperty("os.name");
-        if (name != null) {
-            final String nameLowerCase = name.toLowerCase();
+        final String osName = System.getProperty("os.name");
+        if (osName != null) {
+            final String osNameLowerCase = osName.toLowerCase();
 
             for (final OperatingSystem os : values()) {
                 for (String family : os.familySet) {
-                    if (family.contains(nameLowerCase)) {
+                    if (osNameLowerCase.contains(family)) {
                         return os;
                     }
                 }

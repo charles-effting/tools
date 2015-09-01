@@ -21,6 +21,10 @@ class OperationsExecutor {
 
     // Kill the process after the determined time.
     private static final int PROCESS_TIMEOUT = 10; // seconds
+    // The default value that indicates a normal exit is zero.
+    private static final int DEFAULT_EXIT_CODE = 0;
+
+    private int exitCode = DEFAULT_EXIT_CODE;
 
     // The commands that the executor should try to execute.
     private final Iterator<String> commands;
@@ -37,6 +41,14 @@ class OperationsExecutor {
      * @param cmdLine a {@link CommandLine}.
      */
     protected void appendArguments(final CommandLine cmdLine) {
+    }
+
+    /**
+     * Sets the value that indicates that the process had a normal exit.
+     * @param exitCode the code.
+     */
+    public void setExitCode(final int exitCode) {
+        this.exitCode = exitCode;
     }
 
     /**
@@ -58,6 +70,7 @@ class OperationsExecutor {
 
         final Executor executor = new DefaultExecutor();
         executor.setWatchdog(new ExecuteWatchdog(TimeUnit.MILLISECONDS.convert(PROCESS_TIMEOUT, TimeUnit.SECONDS)));
+        executor.setExitValue(exitCode);
         executor.execute(cmdLine, new OperationsResultHandler());
     }
 
