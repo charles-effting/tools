@@ -2,22 +2,22 @@ package org.effting.tools;
 
 import org.apache.commons.exec.CommandLine;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author Charles Kafels Effting
  */
-class UnixOperations extends AbstractOperations {
+class WindowsOperations extends AbstractOperations {
 
-    protected static final String KDE_OPEN_COMMAND = "kde-open";
-    protected static final String GNOME_OPEN_COMMAND = "gnome-open";
-    protected static final String XDG_OPEN_COMMAND = "xdg-open";
+    protected static final String EXPLORER_COMMAND = "explorer";
 
     @Override
     protected List<String> getOpenCommands() {
-        return Collections.unmodifiableList(Arrays.asList(KDE_OPEN_COMMAND,
-                GNOME_OPEN_COMMAND, XDG_OPEN_COMMAND));
+        return Collections.unmodifiableList(Collections.singletonList(EXPLORER_COMMAND));
     }
 
     @Override
@@ -34,18 +34,18 @@ class UnixOperations extends AbstractOperations {
 
     @Override
     protected <T> OperationsExecutor createExecutor(final List<String> commands, final T argument) {
-        return new UnixOperationsExecutor<>(commands, argument);
+        return new WindowsOperationsExecutor<>(commands, argument);
     }
 
     /**
      *
      * @param <T>
      */
-    protected static class UnixOperationsExecutor<T> extends OperationsExecutor {
+    protected static class WindowsOperationsExecutor<T> extends OperationsExecutor {
 
         private final T argument;
 
-        public UnixOperationsExecutor(final List<String> commandList, T argument) {
+        public WindowsOperationsExecutor(final List<String> commandList, T argument) {
             super(commandList);
 
             this.argument = argument;

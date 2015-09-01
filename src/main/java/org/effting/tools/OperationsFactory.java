@@ -16,10 +16,10 @@ class OperationsFactory {
                 return new UnixOperations();
             }
             case WINDOWS: {
-                throw new UnsupportedOperationException("To be implemented");
+                return new WindowsOperations();
             }
             case MAC_OS: {
-                throw new UnsupportedOperationException("To be implemented");
+                return new MacOperations();
             }
             case UNKNOWN: {
                 return new DefaultOperations();

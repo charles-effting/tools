@@ -6,6 +6,7 @@ import org.junit.runners.JUnit4;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
 
@@ -30,7 +31,7 @@ public class Desktop2Test {
         operations.open(new File(USER_HOME));
 
         try {
-            Thread.sleep(20 * 1000);
+            Thread.sleep(TimeUnit.MILLISECONDS.convert(12, TimeUnit.SECONDS));
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
