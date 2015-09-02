@@ -19,6 +19,7 @@ import static org.junit.Assert.assertEquals;
 public class Desktop2Test {
 
     private static final String USER_HOME = System.getProperty("user.home");
+    private static final URI BROWSER_URI = URI.create("https://github.com/");
     private static final String EDIT_FILE = "edit.txt";
 
     @Test
@@ -73,7 +74,7 @@ public class Desktop2Test {
     @Test
     public void should_open_browser() throws IOException {
         // The default browser should be opened.
-        Desktop2.getDesktop().browser(URI.create("https://github.com/"));
+        Desktop2.getDesktop().browser(BROWSER_URI);
 
         // Wait a few seconds to allow the process execution.
         sleep(6);
