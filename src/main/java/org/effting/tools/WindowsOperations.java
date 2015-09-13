@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * The implementation to perform operations on Windows operating systems.
  *
  * @author Charles Kafels Effting
  */
@@ -37,10 +38,6 @@ class WindowsOperations extends AbstractOperations {
         return new WindowsOperationsExecutor<>(commands, argument);
     }
 
-    /**
-     *
-     * @param <T>
-     */
     protected static class WindowsOperationsExecutor<T> extends OperationsExecutor {
 
         private static final int DEFAULT_EXIT_CODE = 1;

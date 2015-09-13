@@ -11,6 +11,9 @@ import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * A class that performs the execution of the defined commands by creating a new process. It uses the
+ * class {@link Executor} provided by the {@code org.apache.commons:commons-exec} and wraps the configuration around
+ * it.
  *
  * @author Charles Kafels Effting
  */
@@ -29,6 +32,10 @@ class OperationsExecutor {
     // The commands that the executor should try to execute.
     private final Iterator<String> commands;
 
+    /**
+     * Creates a new {@link OperationsExecutor} to perform the command list.
+     * @param commandList the list of commands.
+     */
     public OperationsExecutor(final List<String> commandList) {
         Objects.requireNonNull(commandList, "A list of commands must be informed.");
 
@@ -74,9 +81,6 @@ class OperationsExecutor {
         executor.execute(cmdLine, new OperationsResultHandler());
     }
 
-    /**
-     *
-     */
     private class OperationsResultHandler implements ExecuteResultHandler {
 
         @Override

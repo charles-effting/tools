@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * The implementation to perform operations on OSX operating systems.
  *
  * @author Charles Kafels Effting
  */
@@ -37,10 +38,6 @@ class MacOperations extends AbstractOperations {
         return new MacOperationsExecutor<>(commands, argument);
     }
 
-    /**
-     *
-     * @param <T>
-     */
     protected static class MacOperationsExecutor<T> extends OperationsExecutor {
 
         private final T argument;

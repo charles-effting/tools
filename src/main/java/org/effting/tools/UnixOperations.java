@@ -5,6 +5,7 @@ import org.apache.commons.exec.CommandLine;
 import java.util.*;
 
 /**
+ * The implementation to perform operations on UNIX based operating systems.
  *
  * @author Charles Kafels Effting
  */
@@ -37,10 +38,6 @@ class UnixOperations extends AbstractOperations {
         return new UnixOperationsExecutor<>(commands, argument);
     }
 
-    /**
-     *
-     * @param <T>
-     */
     protected static class UnixOperationsExecutor<T> extends OperationsExecutor {
 
         private final T argument;

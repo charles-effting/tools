@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.net.URI;
 
 /**
+ * A fallback that uses the {@link java.awt.Desktop} when the operating system
+ * is unknown.
  *
  * @author Charles Kafels Effting
  */

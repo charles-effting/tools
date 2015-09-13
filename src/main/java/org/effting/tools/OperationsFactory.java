@@ -4,6 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * A factory that produces a new {@link Operations} based on the operating system provided by
+ * {@link OperatingSystem}.
  *
  * @author Charles Kafels Effting
  */
@@ -16,6 +18,20 @@ class OperationsFactory {
     private OperationsFactory() {
     }
 
+    /**
+     * Produces a new {@link Operations} based on the current operating system provided by
+     * {@link OperatingSystem#current()}.
+     * @return a new instance of {@link Operations}.
+     */
+    public static Operations create() {
+        return create(OperatingSystem.current());
+    }
+
+    /**
+     * Produces a new {@link Operations} based on the {@link OperatingSystem} provided.
+     * @param os the {@link OperatingSystem}.
+     * @return a new instance of {@link Operations}.
+     */
     public static Operations create(final OperatingSystem os) {
         // Log.
         logger.trace("Creating an Operations instance for {}", os.name());

@@ -5,16 +5,30 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
+ * An enum that identifies the current operating system where the application is running.
  *
+ * @author Charles Kafels Effting
  */
 public enum OperatingSystem {
 
+    /**
+     * Windows family.
+     */
     WINDOWS("win"),
 
+    /**
+     * Macintosh family.
+     */
     MAC_OS("mac"),
 
+    /**
+     * UNIX family.
+     */
     UNIX("solaris", "sunos", "linux", "unix"),
 
+    /**
+     * An unknown operating system.
+     */
     UNKNOWN("unknown");
 
     private final Set<String> familySet = new HashSet<>();
@@ -29,8 +43,8 @@ public enum OperatingSystem {
     }
 
     /**
-     *
-     * @return
+     * Detects the current operating system based on the system property {@code os.name}.
+     * @return an instance of {@link OperatingSystem}.
      */
     public static OperatingSystem current() {
         final String osName = System.getProperty("os.name");
