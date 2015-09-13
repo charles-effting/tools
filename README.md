@@ -3,7 +3,7 @@ A project which aims to help to solve some common problems when developing deskt
 
 ##Features
 
-**1.0-SNAPSHOT**
+**1.0**
 
 * Desktop2 - An alternative to the default *java.awt.Desktop* implementation which aims to fix known issues such as opening files or directories in other operating systems other than Windows.
 * OperatingSystem - Identifies the underlying operating system where the application is run.
